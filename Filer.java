@@ -58,7 +58,7 @@ public class Filer {
 			stream.write(imgdata);
 			return true;
 		} catch (Exception ex) {
-			ImCrypter.setUpdate("Output folder (Def: OutFile) not found");
+			ImCrypter.setUpdate("Output folder (OutFiles) not found");
 			return false;
 		}
 	}
