@@ -12,6 +12,7 @@ Instructions:
 6. The bottom left corner will indicate if the process has successfully gone through or if there were any issues.
 
 The keystore is the respository that houses all the keys. If you do not wish to modify the key passwords and want to have this for personal use, then you may not need the following.
+
 Accessing the keystore:
 1. Open the 'Keys' file in the root directory using a keystore management app (I recommend Keystore Explorer).
 2. Enter the password. The keystore password is "i".
