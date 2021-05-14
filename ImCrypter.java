@@ -63,7 +63,7 @@ public class ImCrypter {
 	 * @param args
 	 * @throws Exception
 	 */
-
+	
 	public static void main(String[] args) throws Exception {
 		new ImCrypter();
 		windowInit();
@@ -178,8 +178,6 @@ public class ImCrypter {
 					}
 				} catch (NullPointerException npe) {
 					setUpdate("No file selected");
-				//} catch (IOException iox) {
-					//setUpdate("Filetype decryption error");
 				} catch (BadPaddingException bpe) {
 					setUpdate("Invalid identifier for decryption");
 				} catch (IllegalBlockSizeException ibe) {
@@ -188,7 +186,6 @@ public class ImCrypter {
 					setUpdate("Nonexistent/Empty file. Try another");
 				} catch (Exception e1) {
 					System.out.println(e1);
-					//setUpdate("There was an error");
 				}
 			}
 		});
@@ -264,17 +261,19 @@ public class ImCrypter {
 
 		/////////////////////////////////////////////////////////////////////////////////////////////
 	}
-
+	
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
 		return bindingContext;
 	}
 
+	// setUpdate(update) updates the message log
 	public static void setUpdate(String update) {
 		updateLabel.setText(update);
 	}
-
+	
+	// getPass() prompts the user for the password
 	protected static String getPass() {
 		JFrame passWin = new JFrame();
         String newPass = JOptionPane.showInputDialog(passWin, "Enter password for selected key", null);
