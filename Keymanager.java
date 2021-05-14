@@ -1,3 +1,7 @@
+/*
+Keymanager.java deals with keys in the keystore
+*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +22,7 @@ public class Keymanager {
 	private char[] curPass;
 	private final char[] storePass = "i".toCharArray();
 
-	// reads Identifers.txt and creates keys if they had not already existed
+	// checkIdentifiers() reads Identifers.txt and creates keys if they had not already existed
 	ArrayList<String> checkIdentifiers() throws Exception {
 		KeyStore keyStore = KeyStore.getInstance("JCEKS");
 		try {
@@ -32,9 +36,7 @@ public class Keymanager {
 		
 		try {
 			BufferedReader in = new BufferedReader(new FileReader("Identifiers.txt"));
-
 			String iden = in.readLine();
-
 			while (iden != null) {
 				idents.add(iden);
 				if (!(keyStore.containsAlias(iden))) {
@@ -42,17 +44,16 @@ public class Keymanager {
 				}
 				iden = in.readLine();
 			}
-
 			in.close();
-			
 		} catch (IOException iox) {
 			File newId = new File("Identifiers.txt");
 			newId.createNewFile();
 		}
+		
 		return idents;
 	}
 
-	// Generates a unique 256-bit key
+	// generateKey(alias) generates a unique 256-bit key and gives it the name alias
 	SecretKey generateKey(String alias) throws Exception {
 		KeyGenerator kg;
 		try {
@@ -67,7 +68,7 @@ public class Keymanager {
 		return null;
 	}
 
-	// Stores key
+	// storeKey(key, alias) stores a key
 	void storeKey(SecretKey key, String alias) throws Exception {
 		KeyStore keyStore = KeyStore.getInstance("JCEKS");
 		KeyStore.ProtectionParameter protectionParam = new KeyStore.PasswordProtection(storePass);
@@ -79,7 +80,7 @@ public class Keymanager {
 		keyStore.store(fos, defPass);
 	}
 
-	// Retrieves key
+	// retrieveKey(alias) retrieves the key with the name alias
 	SecretKey retrieveKey(String alias) throws Exception {
 		KeyStore keyStore = KeyStore.getInstance("JCEKS");
 		java.io.FileInputStream fis = new FileInputStream("Keys");
