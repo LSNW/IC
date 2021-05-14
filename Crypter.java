@@ -17,7 +17,7 @@ public class Crypter {
 		km = new Keymanager();
 	}
 
-	// Get and Set
+	// Get and Set methods
 	public String getActive() {
 		return activeKey;
 	}
@@ -26,7 +26,7 @@ public class Crypter {
 		activeKey = newKey;
 	}
 
-	// generates an image by encrypting byte data
+	// encrypt(imgdata) generates an image by encrypting byte data
 	byte[] encrypt(byte[] imgdata) {
 		try {
 			
@@ -54,7 +54,7 @@ public class Crypter {
 		}
 	}
 
-	// generates an image by decrypting byte data
+	// decrypt(entd) generates an image by decrypting byte data
 	byte[] decrypt(byte[] entd) throws Exception {
 		try {
 			Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
