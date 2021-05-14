@@ -1,3 +1,7 @@
+/*
+Filer.java manages file input and output
+*/
+
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
