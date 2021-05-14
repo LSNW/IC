@@ -1,7 +1,7 @@
 This Java program encrypts and decrypts images and features a GUI.
 Requires at least Java 14.
 
-Please note: This project was created out of a personal curiosity for cryptography. For serious encryption/decryption services I would advise searching for professional work.
+Disclaimer: This project was created out of a personal curiosity for cryptography; I am not a certified cryptographer. For serious encryption/decryption services I would advise searching for professional applications.
 
 Instructions:
 1. Download and extract .zip
