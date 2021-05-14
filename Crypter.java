@@ -1,3 +1,7 @@
+/*
+Crypter.java handles the general encryption and decryption work
+*/
+
 import java.io.*;
 import java.security.SecureRandom;
 import java.util.ArrayList;
