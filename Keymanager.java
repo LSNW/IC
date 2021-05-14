@@ -60,7 +60,6 @@ public class Keymanager {
 			kg = KeyGenerator.getInstance("AES");
 			kg.init(256);
 			SecretKey key = kg.generateKey();
-			// System.out.println("Generated key for alias: " + alias);
 			storeKey(key, alias);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
