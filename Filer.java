@@ -16,7 +16,8 @@ public class Filer {
 	final static String OUTDIREC = "OutFiles\\";
 	private String activeFilePath;
 	private File f;
-
+	
+	// Get and Set
 	public String getActive() {
 		return activeFilePath;
 	}
@@ -30,7 +31,7 @@ public class Filer {
 		f = new File(activeFilePath);
 	}
 
-	// converts an image to a byte array
+	// createImgByte() converts an image to a byte array
 	byte[] createImgByte() {
 		BufferedImage ni;
 		try {
@@ -38,16 +39,14 @@ public class Filer {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write(ni, "jpg", baos);
 			ImCrypter.setUpdate("Converted to Bytes");
-
 			return baos.toByteArray();
-
 		} catch (IOException e) {
 			ImCrypter.setUpdate("Image to byte conversion error. Please ensure image is of JPG format.");
 		}
 		return null;
 	}
 
-	// generates file from encrypted bytes
+	// createEnFile(imgdata) generates file from encrypted bytes
 	boolean createEnFile(byte[] imgdata) {
 		if (imgdata == null) {
 			ImCrypter.setUpdate("Canceled");
@@ -63,7 +62,7 @@ public class Filer {
 		}
 	}
 
-	// converts a byte array into an image
+	// createImg(imgdata) converts a byte array into an image
 	boolean createImg(byte[] imgdata) {
 		if (imgdata == null) {
 			ImCrypter.setUpdate("Canceled");
@@ -81,12 +80,11 @@ public class Filer {
 		}
 	}
 
-	// converts a file to a byte array
+	// readFileToByteArray() converts a file to a byte array
 	byte[] readFileToByteArray() {
 		File file = new File(activeFilePath);
 		FileInputStream fis = null;
 		byte[] bArray = new byte[(int) file.length()];
-		
 		try {
 			fis = new FileInputStream(file);
 			fis.read(bArray);
